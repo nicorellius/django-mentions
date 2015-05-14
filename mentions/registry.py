@@ -66,7 +66,7 @@ def _bootstrap():
                 raise exceptions.ImproperlyConfigured('%s isn\'t a module' % path)
             try:
                 mod = import_module(module)
-            except ImportError, e:
+            except ImportError as e:
                 raise exceptions.ImproperlyConfigured('Error importing class %s: "%s"' % (module, e))
             try:
                 cls = getattr(mod, classname)

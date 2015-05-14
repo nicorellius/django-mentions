@@ -23,7 +23,7 @@ def urlize_mentions(text, prefetched=None, urlize=None):
 
     prefetched = dict((provider_name, dict((obj.pk, obj) for obj in objs))
                       for provider_name, objs in prefetched.items())
-    return MENTION_PATTERN.sub(insert_links, unicode(text))
+    return MENTION_PATTERN.sub(insert_links, str(text))
 
 
 def plain_mentions(text):
@@ -36,7 +36,7 @@ def make_mention(obj):
 
 
 def get_mentions(text):
-    mentions = [(type_, pk) for raw, type_, pk in MENTION_PATTERN.findall(unicode(text))]
+    mentions = [(type_, pk) for raw, type_, pk in MENTION_PATTERN.findall(str(text))]
 
     by_type = {}
     for type_, pk in mentions:

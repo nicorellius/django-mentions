@@ -54,3 +54,6 @@ docs/_build/
 *.sublime-workspace
 *.sublime-project
 .DS_Store
+
+# PyCharm
+.idea
