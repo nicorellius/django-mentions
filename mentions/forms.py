@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 
 
 class MentionTextarea(forms.Textarea):
-    """Required: jquery"""
+    """Required: jQuery"""
     class Media:
         css = {
             'all': ('css/jquery.mentions.css',)

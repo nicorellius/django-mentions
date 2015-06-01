@@ -72,16 +72,3 @@ def process_mentions(instance, created, field, **kwargs):
         if model in m2mfields:
             setattr(instance, m2mfields[model].name, objs)
         objects_mentioned.send(mentions=objs, instance=instance, created=created, sender=model)
-
-
-if 'south' in settings.INSTALLED_APPS:
-    from south.modelsinspector import add_introspection_rules
-    add_introspection_rules([
-        (
-            [MentionTextField],
-            [],
-            {
-                #'links': ['links', {}],
-            }
-        ),
-    ], ["^mentions\.models\.MentionTextField"])
